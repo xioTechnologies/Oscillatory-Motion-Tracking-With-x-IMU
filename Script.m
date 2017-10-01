@@ -20,7 +20,7 @@ acc = [xIMUdata.CalInertialAndMagneticData.Accelerometer.X...
        xIMUdata.CalInertialAndMagneticData.Accelerometer.Z];	% accelerometer
   
 % Plot
-figure('Number', 'off', 'Name', 'Gyroscope');
+figure('NumberTitle', 'off', 'Name', 'Gyroscope');
 hold on;
 plot(gyr(:,1), 'r');
 plot(gyr(:,2), 'g');
@@ -30,7 +30,7 @@ ylabel('dps');
 title('Gyroscope');
 legend('X', 'Y', 'Z');
 
-figure('Number', 'off', 'Name', 'Accelerometer');
+figure('NumberTitle', 'off', 'Name', 'Accelerometer');
 hold on;
 plot(acc(:,1), 'r');
 plot(acc(:,2), 'g');
@@ -61,7 +61,7 @@ for i = 1:length(acc)
 end
 
 % Plot
-figure('Number', 'off', 'Name', '''Tilt-Compensated'' accelerometer');
+figure('NumberTitle', 'off', 'Name', '''Tilt-Compensated'' accelerometer');
 hold on;
 plot(tcAcc(:,1), 'r');
 plot(tcAcc(:,2), 'g');
@@ -77,7 +77,7 @@ linAcc = tcAcc - [zeros(length(tcAcc), 1), zeros(length(tcAcc), 1), ones(length(
 linAcc = linAcc * 9.81;     % convert from 'g' to m/s/s
 
 % Plot
-figure('Number', 'off', 'Name', 'Linear Acceleration');
+figure('NumberTitle', 'off', 'Name', 'Linear Acceleration');
 hold on;
 plot(linAcc(:,1), 'r');
 plot(linAcc(:,2), 'g');
@@ -96,7 +96,7 @@ for i = 2:length(linAcc)
 end
 
 % Plot
-figure('Number', 'off', 'Name', 'Linear Velocity');
+figure('NumberTitle', 'off', 'Name', 'Linear Velocity');
 hold on;
 plot(linVel(:,1), 'r');
 plot(linVel(:,2), 'g');
@@ -114,7 +114,7 @@ filtCutOff = 0.1;
 linVelHP = filtfilt(b, a, linVel);
 
 % Plot
-figure('Number', 'off', 'Name', 'High-pass filtered Linear Velocity');
+figure('NumberTitle', 'off', 'Name', 'High-pass filtered Linear Velocity');
 hold on;
 plot(linVelHP(:,1), 'r');
 plot(linVelHP(:,2), 'g');
@@ -133,7 +133,7 @@ for i = 2:length(linVelHP)
 end
 
 % Plot
-figure('Number', 'off', 'Name', 'Linear Position');
+figure('NumberTitle', 'off', 'Name', 'Linear Position');
 hold on;
 plot(linPos(:,1), 'r');
 plot(linPos(:,2), 'g');
@@ -151,7 +151,7 @@ filtCutOff = 0.1;
 linPosHP = filtfilt(b, a, linPos);
 
 % Plot
-figure('Number', 'off', 'Name', 'High-pass filtered Linear Position');
+figure('NumberTitle', 'off', 'Name', 'High-pass filtered Linear Position');
 hold on;
 plot(linPosHP(:,1), 'r');
 plot(linPosHP(:,2), 'g');
@@ -170,6 +170,6 @@ SixDOFanimation(linPosHP, R, ...
                 'Position', [9 39 1280 720], ...
                 'AxisLength', 0.1, 'ShowArrowHead', false, ...
                 'Xlabel', 'X (m)', 'Ylabel', 'Y (m)', 'Zlabel', 'Z (m)', 'ShowLegend', false, 'Title', 'Unfiltered',...
-                'CreateAVI', true, 'AVIfileNameEnum', false, 'AVIfps', ((1/samplePeriod) / SamplePlotFreq));            
+                'CreateAVI', false, 'AVIfileNameEnum', false, 'AVIfps', ((1/samplePeriod) / SamplePlotFreq));            
  
 %% End of script
