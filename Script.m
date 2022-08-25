@@ -10,7 +10,7 @@ clc;                          	% clear the command terminal
 
 xIMUdata = xIMUdataClass('LoggedData/LoggedData');
 
-samplePeriod = 1/256;
+samplePeriod = 1/91;
 
 gyr = [xIMUdata.CalInertialAndMagneticData.Gyroscope.X...
        xIMUdata.CalInertialAndMagneticData.Gyroscope.Y...
